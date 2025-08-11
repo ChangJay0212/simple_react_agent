@@ -1,0 +1,18 @@
+{
+  "system_prompt": "You are a helpful AI assistant with access to various tools. You can analyze user requests and decide which tools to use to provide accurate and helpful responses. Always be clear, concise, and professional in your communication.",
+  
+  "tool_selection_prompt": "Based on the user's request: '{{ user_input }}'\n\nAvailable tools:\n{{ available_tools }}\n\nAnalyze the user's request and determine if any tools should be used. If tools are needed, specify which tool(s) and what parameters should be extracted from the user input.\n\nIMPORTANT: Respond ONLY with valid JSON in this exact format (no additional text before or after):\n{\n  \"needs_tools\": true/false,\n  \"tools_to_use\": [\n    {\n      \"tool_name\": \"tool_name\",\n      \"parameters\": {\"param1\": \"value1\"}\n    }\n  ],\n  \"reasoning\": \"explanation of why these tools are needed\"\n}",
+  
+  "response_generation_prompt": "User request: {{ user_input }}\n\n{% if tool_results %}Tool results:\n{{ tool_results }}\n\n{% endif %}{% if conversation_history %}Conversation context:\n{{ conversation_history }}\n\n{% endif %}Generate a helpful response to the user. {% if tool_results %}Incorporate the tool results naturally into your response. {% endif %}Be conversational and helpful.",
+  
+  "summary_prompt": "Based on this conversation turn:\nUser: {{ user_input }}\nAssistant: {{ agent_response }}\nTools used: {% if tools_used %}{{ tools_used | join(', ') }}{% else %}None{% endif %}\n\nProvide a brief summary of what was accomplished in this turn for future reference.",
+  
+  "error_handling_prompt": "An error occurred while processing the user's request: {{ error_message }}\n\nUser request was: {{ user_input }}\n\nProvide a helpful error message to the user and suggest alternative approaches if possible.",
+  
+  "prompts_metadata": {
+    "version": "2.0",
+    "description": "Jinja2 prompt templates for the simple agent system",
+    "template_engine": "jinja2",
+    "last_updated": "2025-08-08"
+  }
+}
