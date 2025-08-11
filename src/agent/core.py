@@ -15,7 +15,7 @@ sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 
 from agent.utils.memory import Memory
 from GenAIServices.ollama import OllamaHandler
-from tools.core import ToolManager
+from tools.register import ToolManager
 
 
 class SimpleAgent:
