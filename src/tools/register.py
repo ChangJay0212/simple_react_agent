@@ -2,6 +2,7 @@ from typing import Any, Dict, List
 
 from tools.core import BaseTool
 from tools.getcurrenttime import GetCurrentTimeTool
+from tools.recognize_face import RecognizeFaceTool
 
 
 class ToolManager:
@@ -17,6 +18,7 @@ class ToolManager:
     def _register_default_tools(self):
         """Register all default tools."""
         self.register_tool(GetCurrentTimeTool())
+        self.register_tool(RecognizeFaceTool())
 
     def register_tool(self, tool: BaseTool):
         """
