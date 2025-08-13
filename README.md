@@ -3,6 +3,11 @@
 A lightweight, extensible ReAct (Reasoning and Acting) agent module powered by Large Language Models (LLM). This agent can analyze user requests, decide which tools to use, execute them, and provide intelligent responses.
 
 ![](./docs/sample.gif)
+
+## Architecture ( UML )
+
+![](./docs/agent_uml.png)
+
 ## 🚀 Features
 
 - **ReAct Architecture**: Implements the Reasoning and Acting paradigm for intelligent decision-making
